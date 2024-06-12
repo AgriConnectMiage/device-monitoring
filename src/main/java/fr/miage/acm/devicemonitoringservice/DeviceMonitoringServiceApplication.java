@@ -1,4 +1,4 @@
-package org.example.devicemonitoringservice;
+package fr.miage.acm.devicemonitoringservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
