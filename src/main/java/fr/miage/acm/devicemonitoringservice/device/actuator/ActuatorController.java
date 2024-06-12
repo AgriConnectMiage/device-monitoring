@@ -25,8 +25,8 @@ public class ActuatorController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Actuator> getActuatorById(@PathVariable UUID id) {
-        return actuatorService.findById(id);
+    public Optional<ApiActuator> getActuatorById(@PathVariable UUID id) {
+        return actuatorService.findById(id).map(ApiActuator::new);
     }
 
     // get all actuators by farmer

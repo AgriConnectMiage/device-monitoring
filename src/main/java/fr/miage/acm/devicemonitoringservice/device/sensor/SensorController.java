@@ -24,8 +24,8 @@ public class SensorController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Sensor> getSensorById(@PathVariable UUID id) {
-        return sensorService.findById(id);
+    public Optional<ApiSensor> getSensorById(@PathVariable UUID id) {
+        return sensorService.findById(id).map(ApiSensor::new);
     }
 
     @GetMapping("/farmer/{farmerId}")
