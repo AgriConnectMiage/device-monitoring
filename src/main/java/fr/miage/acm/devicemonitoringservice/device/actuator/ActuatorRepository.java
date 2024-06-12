@@ -12,4 +12,6 @@ public interface ActuatorRepository extends JpaRepository<Actuator, UUID> {
     
         void deleteByFarmer(Farmer farmer);
 
+        List<Actuator> findByFarmerId(UUID farmerId);
+
 }

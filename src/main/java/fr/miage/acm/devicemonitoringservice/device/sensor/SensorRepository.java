@@ -11,6 +11,7 @@ public interface SensorRepository extends JpaRepository<Sensor, UUID> {
 
     List<Sensor> findByFarmer(Farmer farmer);
 
-    // findAllByIds
     List<Sensor> findAllByIdIn(List<UUID> ids);
+
+    List<Sensor> findByFarmerId(UUID farmerId);
 }

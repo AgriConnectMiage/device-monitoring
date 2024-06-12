@@ -11,12 +11,4 @@ public class WateringSchedulerService {
     public WateringSchedulerService(WateringSchedulerRepository wateringSchedulerRepository) {
         this.wateringSchedulerRepository = wateringSchedulerRepository;
     }
-
-    public void deleteWateringScheduler(WateringScheduler wateringScheduler) {
-        wateringSchedulerRepository.delete(wateringScheduler);
-    }
-
-    public void deleteWateringSchedulerByActuator(Actuator actuator) {
-        wateringSchedulerRepository.deleteByActuator(actuator);
-    }
 }
