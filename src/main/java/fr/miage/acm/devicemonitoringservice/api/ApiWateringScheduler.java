@@ -1,5 +1,7 @@
 package fr.miage.acm.devicemonitoringservice.api;
 
+import fr.miage.acm.devicemonitoringservice.device.actuator.watering.scheduler.WateringScheduler;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -19,6 +21,14 @@ public class ApiWateringScheduler {
         this.endDate = endDate;
         this.duration = duration;
         this.humidityThreshold = humidityThreshold;
+    }
+
+    public ApiWateringScheduler(WateringScheduler wateringScheduler) {
+        this.id = wateringScheduler.getId();
+        this.beginDate = wateringScheduler.getBeginDate();
+        this.endDate = wateringScheduler.getEndDate();
+        this.duration = wateringScheduler.getDuration();
+        this.humidityThreshold = wateringScheduler.getHumidityThreshold();
     }
 
 

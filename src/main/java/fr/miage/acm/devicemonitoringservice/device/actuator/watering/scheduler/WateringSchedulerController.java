@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/actuators/{actuator}/watering-schedulers")
+@RequestMapping("/actuators/{actuatorId}/watering-scheduler")
 public class WateringSchedulerController {
 
     private WateringSchedulerService wateringSchedulerService;
@@ -23,15 +23,15 @@ public class WateringSchedulerController {
         this.actuatorService = actuatorService;
     }
 
-    @GetMapping("/{schedulerId}")
-    public ApiWateringScheduler getWateringScheduler(@PathVariable UUID actuatorId) {
+    @GetMapping()
+    public WateringScheduler getWateringScheduler(@PathVariable UUID actuatorId) {
         Optional<Actuator> optionalActuator = actuatorService.findById(actuatorId);
         if (optionalActuator.isEmpty()) {
+            System.out.println("dedans2");
             throw new RuntimeException("Actuator not found with id: " + actuatorId);
         }
         WateringScheduler wateringScheduler = wateringSchedulerService.findByActuator(optionalActuator.get());
-        return new ApiWateringScheduler(wateringScheduler.getId(), wateringScheduler.getBeginDate(),
-                wateringScheduler.getEndDate(), wateringScheduler.getDuration(), wateringScheduler.getHumidityThreshold());
+        return wateringScheduler;
     }
 
 }
